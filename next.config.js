@@ -29,7 +29,6 @@ const {
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  swcMinify: true,
   compiler: {
     styledComponents: true,
   },
@@ -64,3 +63,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
