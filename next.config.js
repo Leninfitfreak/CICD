@@ -57,10 +57,9 @@ const nextConfig = {
     NEXT_PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT,
   },
   images: {
-    loader: "custom",
-    loaderFile: "./utils/imageLoader.js"
+    // Default loader will be used; removed custom loaderFile path
+    loader: "default"
   }
 };
 
 module.exports = nextConfig;
-
