@@ -3,12 +3,12 @@ name: Frontend CI/CD
 on:
   push:
     branches:
-      - main
+      - frontend
 
 env:
   # Reusable variables
   DOCKER_REGISTRY: docker.io
-  DOCKER_IMAGE_NAME: your-dockerhub-username/frontend
+  DOCKER_IMAGE_NAME: your-dockerhub-userna/frontend
   IMAGE_TAG: ${{ github.run_id }}
   DEPLOYMENT_FILE_PATH: k8s/deployment.yaml
   CONTAINER_NAME_IN_YAML: frontend
