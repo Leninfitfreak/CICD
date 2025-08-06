@@ -3,7 +3,7 @@ name: Frontend CI/CD
 on:
   push:
     branches:
-      - frontend
+      - frontendhub
 
 env:
   DOCKER_REGISTRY: docker.io
@@ -87,7 +87,7 @@ jobs:
 
       - name: Authenticate Git Push
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${{ secrets.REPO-TOKEN }}@github.com/${{ github.repository }}
 
       - name: Update image tag in manifest
         run: |
