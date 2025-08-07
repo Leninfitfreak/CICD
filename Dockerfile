@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
-COPY frontend/package*.json ./
+COPY package*.json ./
 RUN npm ci
 
 FROM node:20-alpine AS builder
@@ -44,4 +44,5 @@ ENV PORT=8080
 EXPOSE ${PORT}
 
 ENTRYPOINT ["npm", "start"]
+
 
