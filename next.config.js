@@ -7,13 +7,11 @@ const dotEnv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const { resolve } = require('path');
 
-// Load .env from two levels above
 const myEnv = dotEnv.config({
   path: resolve(__dirname, '../../.env'),
 });
 dotenvExpand.expand(myEnv);
 
-// Destructure environment variables with fallbacks
 const {
   AD_ADDR = '',
   CART_ADDR = '',
@@ -28,7 +26,6 @@ const {
   PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT = '',
 } = process.env;
 
-// Final Next.js config
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
@@ -37,15 +34,13 @@ const nextConfig = {
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.resolve.fallback = {
-        http2: false,
-        tls: false,
-        net: false,
-        dns: false,
-        fs: false,
-        ...config.resolve.fallback,
-      };
+      config.resolve.fallback.http2 = false;
+      config.resolve.fallback.tls = false;
+      config.resolve.fallback.net = false;
+      config.resolve.fallback.dns = false;
+      config.resolve.fallback.fs = false;
     }
+
     return config;
   },
   env: {
@@ -60,6 +55,10 @@ const nextConfig = {
     NEXT_PUBLIC_PLATFORM: ENV_PLATFORM,
     NEXT_PUBLIC_OTEL_SERVICE_NAME: OTEL_SERVICE_NAME,
     NEXT_PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT,
+  },
+  images: {
+    loader: "custom",
+    loaderFile: "./utils/imageLoader.js"
   }
 };
 
