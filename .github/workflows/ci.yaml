@@ -71,7 +71,9 @@ jobs:
 
       - name: Authenticate Git Push
         run: |
-          git remote set-url origin https://github.com/Leninfitfreak/CICD.git:${{ secrets.REPO-TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${REPO_TOKEN}@github.com/${{ github.repository }}
+          git push origin k8s-deployment
+      
       - name: Install yq (Go-based, Mike Farah)
         run: |
             wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
