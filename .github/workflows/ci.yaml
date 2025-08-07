@@ -86,4 +86,4 @@ jobs:
         run: |
           git add "$DEPLOYMENT_FILE_PATH"
           git commit -m "CI: Update image tag to $IMAGE_TAG"
-          git push origin HEAD:frontend
+          git push origin HEAD:master
