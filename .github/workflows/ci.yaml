@@ -70,7 +70,7 @@ jobs:
 
       - name: Update image tag in manifest
         run: |
-          yq e "(.spec.template.spec.containers[] | select(.name == \"$CONTAINER_NAME_IN_YAML\") .image) = \"$DOCKER_IMAGE_NAME:$IMAGE_TAG\"" -i "$DEPLOYMENT_FILE_PATH"
+          yq eval "(.spec.template.spec.containers[] | select(.name == \"$CONTAINER_NAME_IN_YAML\") .image) = \"$DOCKER_IMAGE_NAME:$IMAGE_TAG\"" -i "$DEPLOYMENT_FILE_PATH"
 
       - name: Commit and push changes
         run: |
