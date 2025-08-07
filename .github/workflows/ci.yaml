@@ -6,7 +6,6 @@ on:
       - frontend
 
 env:
-  GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
   DOCKER_REGISTRY: docker.io
   DOCKER_IMAGE_NAME: leninfitfreak/frontend
   IMAGE_TAG: ${{ github.run_id }}
@@ -69,7 +68,7 @@ jobs:
 
       - name: Authenticate Git Push
         run: |
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${REPO_TOKEN}@github.com/${{ github.repository }}
           git push origin master
       
       - name: Install yq (Go-based, Mike Farah)
