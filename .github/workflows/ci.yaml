@@ -6,6 +6,7 @@ on:
       - frontend
 
 env:
+  REPO_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
   DOCKER_REGISTRY: docker.io
   DOCKER_IMAGE_NAME: leninfitfreak/frontend
   IMAGE_TAG: ${{ github.run_id }}
