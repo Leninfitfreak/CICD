@@ -1019,7 +1019,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frontend
-          image: 'leninfitfreak/frontend:16802311587'
+          image: 'leninfitfreak/frontend:16803487760'
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
