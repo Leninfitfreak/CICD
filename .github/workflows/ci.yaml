@@ -9,7 +9,7 @@ env:
   DOCKER_REGISTRY: docker.io
   DOCKER_IMAGE_NAME: leninfitfreak/frontend
   IMAGE_TAG: ${{ github.run_id }}
-  DEPLOYMENT_FILE_PATH: https://github.com/Leninfitfreak/CICD/edit/master/kubernetes/complete-deploy.yaml
+  DEPLOYMENT_FILE_PATH: kubernetes/complete-deploy.yaml
   CONTAINER_NAME_IN_YAML: frontend
   NODE_VERSION: '20'
 
@@ -55,6 +55,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Checkout specific branch master
+        uses: actions/checkout@v4
+        with:
+          ref: k8s-deployment
 
       - name: Install yq
         run: sudo apt-get update && sudo apt-get install -y yq
